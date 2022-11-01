@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const year = parseInt(prompt('請輸入西元年'));
+    const month = parseInt(prompt('請輸入月份'));
+    const date = parseInt(prompt('請輸入日期'));
+    var l;
+
+    /*西元年份除以4不可整除，為平年。
+    西元年份除以4可整除，且除以100不可整除，為閏年。
+    西元年份除以100可整除，且除以400不可整除，為平年
+    西元年份除以400可整除，為閏年。
+    */
+    if ( year%4 != 0 ){    
+        leapyear = 0
+        // document.write(year + '是平年<br>')  
+    } else if ( year%100 != 0 ){
+        leapyear = 1
+        // document.write(year + '是閏年<br>')  
+    } else if ( year%400 != 0 ){
+        leapyear = 0
+        // document.write(year+'是平年<br>')  
+    } else {
+        leapyear = 1
+        // document.write(year+'是閏年<br>')  
+    }
+
+    if(leapyear)
+      document.write(`${year}是閏年<br>`);
+    else
+      document.write(`${year}是平年 <br>`);
+
+    if (month==1){
+      //document.write(l)
+      // 當月份等於1月時
+      l = date;    
+    } else if (month==2){
+      l = 31 + date;
+      //document.write(l)
+      // 當月份是2月份時
+    } else if ( (month==3) || (month==5) || (month==7) ){
+        l = 31*((month-1)/2) + 30*((month-3)/2) + 28 + date + leapyear;
+        //document.write(l)
+      // 正常奇數月份
+    } else if ( (month==4) || (month==6) || (month==8) ) {
+        l = 31*(month/2) + 30*((month-4)/2) + 28 + date + leapyear;
+      //document.write(l)
+    } //else if (month === 8) {
+      //l = 31*4 + 30*2 + 28 + date + leapyear;
+      //document.write(l)
+    else if ( (month==9) || (month==11) ){
+      l = 31*((month+1)/2) + 30*((month-5)/2) + 28 + date + leapyear;
+      //document.write(l)
+    } else if ( (month==10) || (month==12) ){
+        l = 31*(month/2) + 30*((month-4)/2) + 28 + date + leapyear;
+    } else{
+        document.write("Wrong month value!<br>");
+    }
+
+    document.write(`${month}/${date}是今年的第${l}天`)
+    // } else {
+    //   alert('請輸入正確月份')
+    // }
+  </script>
+
+</body>
+</html>

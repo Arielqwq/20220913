@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    let year = parseInt(prompt('請輸入西元年'));
+    let month = parseInt(prompt('請輸入月份'));
+    let date = parseInt(prompt('請輸入日期'));
+    // '' 為字, 直接給0就可。
+    let l = 0
+    let leapyear = 0
+
+    if (year % 4 !== 0) {
+      leapyear = 0
+    } else if (year % 100 !== 0) {
+      leapyear++
+    } else if (year % 400 !== 0) {
+      leapyear = 0
+    } else {
+      leapyear++
+    }
+
+    if (month == 1) {
+      document.write(date)
+    } else if (month == 2) {
+      l = 31 + date;
+      document.write(l)
+    } else if (3 <= month && month <= 8) {
+      l = (31 * parseInt(month / 2)) + (30 * parseInt((month - 3) / 2)) + 28 + date + leapyear;
+      document.write(l)
+    } else {
+      l = (31 * parseInt((month + 1) / 2)) + (30 * parseInt((month - 4) / 2)) + 28 + date + leapyear;
+      document.write(l)
+    } 
+  </script>
+</body>
+
+</html>

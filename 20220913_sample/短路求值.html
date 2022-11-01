@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 回傳第一個 Boolean() 判斷是 true 的值
+    let x = null || undefined || NaN || false
+    console.log(x)
+
+    // 回傳第一個 Boolean() 判斷是 false 的值
+    let y = 123 && 'abc' && NaN && false
+    console.log(y)
+
+    // 回傳第一個不是 null 也不是 undefined 的值
+    let z = 123 ?? false ?? NaN ?? undefined
+    console.log(z)
+
+    // 如果不用 || 的話 if 會寫很長
+    let a = null
+    let b = undefined
+    let c = NaN
+    let d = false
+    let e
+    if (a) {
+      e = a
+    } else if (b) {
+      e = b
+    } else if (c) {
+      e = c
+    } else {
+      e = d
+    }
+    console.log(e)
+  </script>
+</body>
+</html>
